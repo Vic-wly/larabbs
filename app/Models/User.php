@@ -11,6 +11,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
 {
     use Notifiable, MustVerifyEmailTrait;
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+    
     protected $fillable = [
         'name', 'email', 'password', 'introduction','avatar',
     ];
